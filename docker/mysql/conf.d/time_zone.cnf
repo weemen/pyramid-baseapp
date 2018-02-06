@@ -1,0 +1,4 @@
+[mysqld]
+# timezone UTC is only available after timezone tables are imported
+# default-time-zone = UTC
+default-time-zone = '+00:00'

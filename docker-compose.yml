@@ -1,0 +1,38 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ""
+      dockerfile: Pyramid.Dockerfile
+    image: firehose/backend:latest
+    volumes:
+      - "./development.ini:/conf/settings.ini"
+      # development only
+      - "./:/app"
+    # development only
+    ports:
+      - 8000:8000
+    entrypoint:
+      - gunicorn
+      - --paster
+      - /conf/settings.ini
+      - -b
+      - 0.0.0.0:8000
+      - --reload
+
+  mysql:
+    build: docker/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=eventsourcing
+      - MYSQL_USER=bynder
+      - MYSQL_PASSWORD=bynder
+    ports:
+      - 9001:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 9002:80
+    links:
+      - mysql:db
