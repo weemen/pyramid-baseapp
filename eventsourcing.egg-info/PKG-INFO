@@ -12,15 +12,9 @@ Description: eventsourcing README
         Getting Started
         ---------------
         
-        - cd <directory containing this file>
-        
-        - $VENV/bin/pip install -e .
-        
-        - $VENV/bin/pserve development.ini
-        
-        docker-compose run app python setup.py install
-        docker-compose run app python setup.py develop
-        
+        docker-compose run backend python setup.py install
+        docker-compose run backend python setup.py develop
+        docker-compose up
         
         0.0
         ---

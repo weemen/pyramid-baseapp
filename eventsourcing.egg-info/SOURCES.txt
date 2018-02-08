@@ -4,9 +4,9 @@ README.txt
 development.ini
 production.ini
 pytest.ini
-requirements.txt
 setup.py
 eventsourcing/__init__.py
+eventsourcing/models.py
 eventsourcing/tests.py
 eventsourcing/views.py
 eventsourcing.egg-info/PKG-INFO

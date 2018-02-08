@@ -6,10 +6,8 @@ services:
       dockerfile: Pyramid.Dockerfile
     image: firehose/backend:latest
     volumes:
-      - "./development.ini:/conf/settings.ini"
-      # development only
-      - "./:/app"
-    # development only
+      - ./development.ini:/conf/settings.ini
+      - ./:/app
     ports:
       - 8000:8000
     entrypoint:
